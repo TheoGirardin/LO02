@@ -1,6 +1,6 @@
 package core;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Map {
     private Zone zone; // Liste des zones

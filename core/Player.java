@@ -24,19 +24,16 @@ public class Player {
 
     // Création des étudiants
     public ArrayList<Etudiant> creationEtudiant() {
-        System.out.println("Création des étudiants !");
-        for (int i = 0; i < 15; i++) { // Création d'un étudiant
-            Etudiant etudiant = new Etudiant(Niveau.ETUDIANT, i, 30, 0, 0, 0, 0, 0, Strategie.ALEATOIRE);
-            etudiants.add(etudiant);
+        // Création d'un étudiant
+        for (int i = 0; i < 15; i++) {
+            etudiants.add(new Etudiant(Niveau.ETUDIANT, i, 30, 0, 0, 0, 0, 0, Strategie.ALEATOIRE));
         }
-        for (int i = 15; i < 19; i++) { // Création d'un étudiant élite
-            Etudiant etudiantElite = new Etudiant(Niveau.ETUDIANT_ELITE, i, 30, 1, 1, 1, 5, 1, Strategie.ALEATOIRE);
-            etudiants.add(etudiantElite);
+        // Création d'un étudiant élite
+        for (int i = 15; i < 19; i++) {
+            etudiants.add(new Etudiant(Niveau.ETUDIANT_ELITE, i, 30, 1, 1, 1, 5, 1, Strategie.ALEATOIRE));
         }
-        for (int i = 19; i < 20; i++) { // Création d'un maître gobby
-            Etudiant maitreGobby = new Etudiant(Niveau.MAITRE_GOBBY, i, 30, 2, 2, 2, 10, 2, Strategie.ALEATOIRE);
-            etudiants.add(maitreGobby);
-        }
+        // Création d'un maître gobby
+        etudiants.add(new Etudiant(Niveau.MAITRE_GOBBY, 19, 30, 2, 2, 2, 10, 2, Strategie.ALEATOIRE));
 
         // Nombre d'étudiants par joueur
         System.out.println("La filière " + filiere + " a " + etudiants.size() + " étudiants");
@@ -135,8 +132,7 @@ public class Player {
     }
 
     public void configEtudiant(String choix) {
-        System.out.println("Vous avez choisi l'étudiant " + choix);
-        System.out.println("Vous avez " + point + " points à répartir");
+        System.out.println("Vous avez choisi l'étudiant " + choix + ", vous avez " + point + " points à répartir !");
         System.out.println(
                 "Que souhaitez-vous modifier ? 1:ECTS, 2:Dexterité, 3:Force, 4:Resistance, 5:Constitution, 6:Stratégie, 8:Fin");
         String choixPoint = Master.scanner.nextLine();
@@ -273,7 +269,7 @@ public class Player {
                             + etudiants.get(i).getConstitution() + " constitution, " +
                             etudiants.get(i).getInitiative()
                             + " initiative, stratégie " + etudiants.get(i).getStrategie());
-            System.out.println(", id :" + etudiants.get(i) + ")");
+            // System.out.println(", id :" + etudiants.get(i) + ")");
         }
     }
 
@@ -454,11 +450,11 @@ public class Player {
         }
 
         int max = 0;
-        Etudiant etudiant = null;
+        // Etudiant etudiant = null;
         for (int i = 0; i < etudiants.size(); i++) {
             if (etudiants.get(i).getInitiative() > max) {
                 max = etudiants.get(i).getInitiative();
-                etudiant = etudiants.get(i);
+                // etudiant = etudiants.get(i);
 
             }
         }
