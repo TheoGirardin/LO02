@@ -438,7 +438,7 @@ public class Player {
 
     }
 
-    // Affichage de toutes les zones et leurs étudiants respectifs
+    // Affichage de toutes les zones et leurs étudiants respectifs 
     public void beforeStartInfo() {
         for (int i = 0; i < maps.getMaps().size(); i++) {
             System.out.println("Etudiant dans la bibliothèque : " + maps.getMaps().get(i).getZone());
