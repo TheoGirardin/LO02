@@ -9,7 +9,7 @@
       "name": "Launch Master",
       "request": "launch",
       "mainClass": "core.Master",
-      "projectName": "LO02_41cfa84c"
+      "projectName": "LO02_41cf0bc9"
     },
     {
       "type": "java",
@@ -22,7 +22,7 @@
       "name": "Launch Master",
       "request": "launch",
       "mainClass": "Master",
-      "projectName": "LO02_41cfa84c"
+      "projectName": "LO02_41cf0bc9"
     }
   ]
 }

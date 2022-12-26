@@ -1,5 +1,6 @@
 package core;
 
+import java.text.Format;
 import java.util.ArrayList;
 
 public class Player {
@@ -24,15 +25,15 @@ public class Player {
 
     // Création des étudiants
     public ArrayList<Etudiant> creationEtudiant() {
-        // Création d'un étudiant
+        // Création des étudiants
         for (int i = 0; i < 15; i++) {
             etudiants.add(new Etudiant(Niveau.ETUDIANT, i, 30, 0, 0, 0, 0, 0, Strategie.ALEATOIRE));
         }
-        // Création d'un étudiant élite
+        // Création des étudiants élite
         for (int i = 15; i < 19; i++) {
             etudiants.add(new Etudiant(Niveau.ETUDIANT_ELITE, i, 30, 1, 1, 1, 5, 1, Strategie.ALEATOIRE));
         }
-        // Création d'un maître gobby
+        // Création d'un maître du gobby
         etudiants.add(new Etudiant(Niveau.MAITRE_GOBBY, 19, 30, 2, 2, 2, 10, 2, Strategie.ALEATOIRE));
 
         // Nombre d'étudiants par joueur
@@ -254,7 +255,6 @@ public class Player {
                 System.out.println("Vous avez choisi Fin");
                 break;
         }
-
     }
 
     public void listEtudiant() {
@@ -281,7 +281,6 @@ public class Player {
             Etudiant id = etudiants.get(i).getEtudiant();
             maps.getMaps().get(5).getEtudiants().add(id);
         }
-
         maps.listMaps();
         System.out.println(
                 "Entrer list pour afficher la liste des zones, le nom d'une zone (bb, be, qa, hi, hs, re) pour connaître les etudiants en faisant parti ou start pour commencer, sinon entrer le numéro de l'etudiant que vous souhaitez changer de zone");
@@ -388,13 +387,12 @@ public class Player {
                             "Entrer list pour afficher la liste des zones, le nom d'une zone (bb, be, qa, hi, hs, re) pour connaître les etudiants en faisant parti ou start pour commencer, sinon entrer le numéro de l'etudiant que vous souhaitez changer de zone");
             }
         }
-
     }
 
     public void configMap(String entry) {
         int num = Integer.parseInt(entry);
         System.out.println(
-                "Entrer la zone de destination (0:BIBLIOTHEQUE, 1:BUREAU_ETUDIANTS, 2:QUARTIER_ADMINISTRATIF, 3:HALLES_INDUSTRIELLES, 4:HALLE_SPORTIVE, 5:RESERVE)");
+                "Entrer la zone de destination pour cet étudiant (0:BIBLIOTHEQUE, 1:BUREAU_ETUDIANTS, 2:QUARTIER_ADMINISTRATIF, 3:HALLES_INDUSTRIELLES, 4:HALLE_SPORTIVE, 5:RESERVE)");
         String dest = Master.scanner.nextLine();
         switch (dest) {
             case "0":
@@ -440,22 +438,12 @@ public class Player {
 
     }
 
-    // Affichage de toute les zones et leurs étudiants respectifs
-    public void startCombat(Player player) {
+    // Affichage de toutes les zones et leurs étudiants respectifs
+    public void beforeStartInfo() {
         for (int i = 0; i < maps.getMaps().size(); i++) {
-            System.out.println(maps.getMaps().get(i).getZone());
+            System.out.println("Etudiant dans la bibliothèque : " + maps.getMaps().get(i).getZone());
             for (int j = 0; j < maps.getMaps().get(i).getEtudiants().size(); j++) {
-                System.out.println(maps.getMaps().get(i).getEtudiants().get(j));
-            }
-        }
-
-        int max = 0;
-        // Etudiant etudiant = null;
-        for (int i = 0; i < etudiants.size(); i++) {
-            if (etudiants.get(i).getInitiative() > max) {
-                max = etudiants.get(i).getInitiative();
-                // etudiant = etudiants.get(i);
-
+                System.out.println("ID :" + maps.getMaps().get(i).getEtudiants().get(j).getId());
             }
         }
     }

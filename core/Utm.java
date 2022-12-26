@@ -30,8 +30,8 @@ public class Utm {
                 totalETCS += ETCS;
             }
             System.out.println("Zone " + i + ": " + maps.get(i).getZone() + ", nombre d'etudiants dans cette zone : "
-                    + maps.get(i).getEtudiants().size() + ", nombre total d'ECTS : " + totalETCS
-                    + ", id :" + maps.get(i));
+                    + maps.get(i).getEtudiants().size() + ", nombre total d'ECTS : " + totalETCS);
+            // System.out.println(", id :" + maps.get(i));
         }
         System.out.println();
     }
@@ -42,7 +42,7 @@ public class Utm {
         System.out.println();
         System.out.println("Les étudiants dans cette zone sont :");
         for (int i = 0; i < maps.get(id).getEtudiants().size(); i++) {
-            System.out.println("Etudiant " + i + ", ("
+            System.out.println("Etudiant " + maps.get(id).getEtudiants().get(i).getId() + ", ("
                     + maps.get(id).getEtudiants().get(i).getNiveauEtudiant() + ", "
                     + maps.get(id).getEtudiants().get(i).getEcts()
                     + " ECTS, " + maps.get(id).getEtudiants().get(i).getDexterite() + " dexterité, " +
